@@ -19,12 +19,30 @@ def is_deterministic(a:'StackAutomaton')->bool:
   for i in range(length):
     for j in range(length):
       if(j<=i): continue
-      if(trans[i][1]!=trans[j][1]): continue #check the source;
-      if(trans[i][2]==trans[j][2] and trans[i][3]==trans[j][3]): #check 1st rule;
+      if(trans[i][0]!=trans[j][0]): continue #check the source;
+      if(trans[i][1]==trans[j][1] and trans[i][2]==trans[j][2]): #check 1st rule;
         return False 
-      if((trans[i][2]=='%' or trans[j][2]=='%') and trans[i][3]==trans[j][3]): #check 2nd and 3rd rule;
+      if((trans[i][1]=='%' or trans[j][1]=='%') and trans[i][2]==trans[j][2]): #check 2nd and 3rd rule;
         return False
   return True
+
+def excute_epsilon(a:'StackAutomaton', p:str, w:list):
+  ALPHA = ''
+  while(len(w)>0): #check if it is a transition of epsilon; -> excute_epsilon();
+    
+    ALPHA = w.pop()
+    find = False
+    for (source, letter, head, push, dest) in a.transitions:
+      if(source != p): continue #check the source;
+      if(head != ALPHA): continue #check the stack letter;
+      if(letter != '%'): continue #check the letter;
+      w = w + push[::-1]
+      p = dest
+      find = True
+    if(not find):
+      w.append(ALPHA)
+      return p
+  return p
 
   
 ##################
@@ -35,22 +53,25 @@ def recognizes(a:'StackAutomaton', word:str)->bool:
   word_stack = list(word[len(word)::-1]) #reverse the word then transforme it to a stack;
   stack.append(a.initial_stack)
   state = a.initial.name
-
-  while(len(word_stack)!=0):
+  while(len(word_stack)!=0 or len(stack)!=0):
+    state = excute_epsilon(a, state, stack)
+    if(len(word_stack)==0): 
+      if(state in a.acceptstates): return True
+      else: return False
     ALPHA = stack.pop()
     alpha = word_stack.pop()
     find = False
-
+    
     for (source, letter, head, push, dest) in a.transitions:
       if(source != state): continue #check the source;
       if(head != ALPHA): continue #check the stack letter;
-      if(letter != alpha and letter != '%'): continue #check the letter;
-      if(letter == '%'): word_stack.append(alpha) #check if it is a transition of epsilon; -> excute_epsilon();
+      if(letter != alpha): continue #check the letter;
       stack = stack + push[::-1]
       state = dest
       find = True
+      if(len(word_stack)==0 and state in a.acceptstates): return True
       break
-    
+  
     if(not find): return False
 
   if(state in a.acceptstates): return True
