@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0 a Z B.Z 0
 0 b Z A.Z 0
 0 a A B.A 0
@@ -10,4 +11,18 @@
 1 a A % 1
 1 b B % 1
 1 % Z % 2
+=======
+0 a Z B.Z 0
+0 b Z A.Z 0
+0 a A B.A 0
+0 b A A.A 0
+0 a B B.B 0
+0 b B A.B 0
+0 % Z Z 1
+0 % A A 1
+0 % B B 1
+1 a A % 1
+1 b B % 1
+1 % Z % 2
+>>>>>>> 3a4552f790f84389b2759d602960536126cdbe3e
 A 2
