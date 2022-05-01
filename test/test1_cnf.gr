@@ -1,0 +1,13 @@
+S0 A.Sb
+S0 B.Sa
+S0 B.A
+S0 A.B
+S0 %
+S A.Sb
+S B.Sa
+S A.B
+S B.A
+Sa S.A
+Sb S.B
+A a
+B b

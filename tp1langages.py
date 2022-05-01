@@ -48,7 +48,7 @@ def excute_epsilon(a:'StackAutomaton', p:str, w:list):
 ##################
   
 def recognizes(a:'StackAutomaton', word:str)->bool:
-
+  word=word.replace("%","")
   stack = []
   word_stack = list(word[len(word)::-1]) #reverse the word then transforme it to a stack;
   stack.append(a.initial_stack)

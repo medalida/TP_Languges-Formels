@@ -46,7 +46,7 @@ if __name__ == "__main__" :
     usagestring = "Usage: {} <grammar-file.gr> <word-to-recognize>"
     error(usagestring.format(sys.argv[0]))
 
-  grammarfile = sys.argv[1]  
+  grammarfile = sys.argv[1]
   word = sys.argv[2]
 
   a = Grammar("dummy")
