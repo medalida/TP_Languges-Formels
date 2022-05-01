@@ -1,0 +1,9 @@
+0 a Z A.Z 0
+0 a A A.A 0
+0 b A % 1
+1 b A % 1
+1 b Z B.Z 1
+1 b B B.B 1
+1 c B % 2
+2 c B % 2
+A 2
