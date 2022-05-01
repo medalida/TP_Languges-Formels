@@ -28,7 +28,7 @@ def is_deterministic(a:'StackAutomaton')->bool:
 
 def excute_epsilon(a:'StackAutomaton', p:str, w:list):
   ALPHA = ''
-  while(len(w)>0): #check if it is a transition of epsilon; -> excute_epsilon();
+  while(len(w)>0): #check if it is a transition of epsilon;
     
     ALPHA = w.pop()
     find = False
