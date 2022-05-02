@@ -1,1 +1,13 @@
-
+S X.Y
+S Xb.Y
+Xb X.B
+X A.B
+X Ax.B
+Ax A.X
+Y B.C
+Y By.C
+By B.Y
+A a
+B b
+B BB
+C c
