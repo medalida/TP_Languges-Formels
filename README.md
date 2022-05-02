@@ -10,9 +10,10 @@ _____________
     { w.~w | w ϵ Σ* | Σ={a,b} } : EX: si w = ab alors ~w = ba 
 
 ### Test2 Langage:
-    { w ϵ {a,b}* | |w|b = |w|c }
+    { w ϵ {a,b}* | |w|b = |w|c } 
 
-### Test3 Langage:
-    { a^n.b^p.c^m | n,m > 0 and p >= n+m }
+### Test3 Langage: 
+    { a^n.b^p.c^m | n,m > 0 and p >= n+m } 
 
+# Lien de TP sur GitHub : https://github.com/medalida/TP_Languges-Formels 
 TP langages formels
